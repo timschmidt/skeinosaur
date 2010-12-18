@@ -1,5 +1,5 @@
 /*
- *  skeinosaur.scad
+ *  guide_rail_mount.scad
  *  by Timothy Schmidt.
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -20,11 +20,8 @@
 
 include <configuration.scad>
 
-use <MCAD/servos.scad>
+module guide_rail_mount() {
 
-use <carriage.scad>
-use <guide_rail_mount.scad>
-use <needle_bed.scad>
-use <needle_cam.scad>
+}
 
-alignds420([0,0,0], [0,0,0], screws = 0, axle_lenght = 0);
+guide_rail_mount();

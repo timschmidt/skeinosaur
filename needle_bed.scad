@@ -1,5 +1,5 @@
 /*
- *  skeinosaur.scad
+ *  needle_bed.scad
  *  by Timothy Schmidt.
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -18,13 +18,12 @@
  *
 */
 
+// integrated pegboard, screw holes, needle endstops
+
 include <configuration.scad>
 
-use <MCAD/servos.scad>
+module needle_bed() {
 
-use <carriage.scad>
-use <guide_rail_mount.scad>
-use <needle_bed.scad>
-use <needle_cam.scad>
+}
 
-alignds420([0,0,0], [0,0,0], screws = 0, axle_lenght = 0);
+needle_bed();
