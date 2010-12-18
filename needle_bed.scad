@@ -24,6 +24,8 @@ include <configuration.scad>
 
 module needle_bed() {
 
+	cube([$needle_bed_width, $needle_bed_depth, $needle_bed_height]);
+
 }
 
 needle_bed();

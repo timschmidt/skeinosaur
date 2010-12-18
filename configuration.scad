@@ -1,30 +1,27 @@
-/*
- *  configuration.scad
- *  by Timothy Schmidt.
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
-*/
-
+// Constants
 $needle_width = 0;
 $needle_length = 0;
 $needle_catch_offset = 0;
 $needle_catch_depth = 0;
 $needle_catch_height = 0;
 
-$number_of_needles = 0;
+$number_of_needles = 10;
 
 $needle_spacing = 0;
 
+$guide_rail_diameter = 8;
+$guide_rail_height = 40;
+$guide_rail_depth = 20;
+$guide_rail_mount_width = 5;
+$guide_rail_mount_depth = 30;
+$guide_rail_mount_height = 50;
+$idler = 1;
+$motor = 2;
+
+$needle_bed_width = 10;
+$needle_bed_depth = 60;
+$needle_bed_height = 5;
+
+// Derived values
+$skeinosaur_width = $needle_bed_width * $number_of_needles + $guide_rail_mount_width * 2;
+$guide_rail_radius = $guide_rail_diameter / 2;

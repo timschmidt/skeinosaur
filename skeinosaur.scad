@@ -28,3 +28,22 @@ use <needle_bed.scad>
 use <needle_cam.scad>
 
 alignds420([0,0,0], [0,0,0], screws = 0, axle_lenght = 0);
+
+carriage();
+
+guide_rail_mount($motor);
+
+translate([$skeinosaur_width - $guide_rail_mount_width, 0, 0])
+guide_rail_mount($idler);
+
+for (i=[0:$number_of_needles - 1]) {
+	translate([$guide_rail_mount_width + i * $needle_bed_width, 0, 0])
+	needle_bed();
+}
+
+needle_cam();
+
+// Guide rail
+translate([0, $guide_rail_depth, $guide_rail_height])
+rotate([0,90,0])
+cylinder(r=$guide_rail_radius, h=$skeinosaur_width);

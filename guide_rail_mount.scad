@@ -20,8 +20,13 @@
 
 include <configuration.scad>
 
-module guide_rail_mount() {
+module guide_rail_mount(style) {
+	cube([$guide_rail_mount_width, $guide_rail_mount_depth, $guide_rail_mount_height]);
+
+	if (style == $idler) { echo("bob"); }
+
+	if (style == $motor) { echo("nancy"); }
 
 }
 
-guide_rail_mount();
+guide_rail_mount($motor);
