@@ -36,7 +36,7 @@ guide_rail_mount($motor);
 translate([$skeinosaur_width - $guide_rail_mount_width, 0, 0])
 guide_rail_mount($idler);
 
-for (i=[0:$number_of_needles - 1]) {
+for (i=[0:$number_of_needles / $needles_per_bed - 1]) {
 	translate([$guide_rail_mount_width + i * $needle_bed_width, 0, 0])
 	needle_bed();
 }
@@ -47,3 +47,7 @@ needle_cam();
 translate([0, $guide_rail_depth, $guide_rail_height])
 rotate([0,90,0])
 cylinder(r=$guide_rail_radius, h=$skeinosaur_width);
+
+// Belt
+translate([0, 0, $guide_rail_height])
+cube([$skeinosaur_width, 1, 4]);

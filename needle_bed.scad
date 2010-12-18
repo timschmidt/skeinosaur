@@ -24,7 +24,16 @@ include <configuration.scad>
 
 module needle_bed() {
 
-	cube([$needle_bed_width, $needle_bed_depth, $needle_bed_height]);
+	difference() {
+		cube([$needle_bed_width, $needle_bed_depth, $needle_bed_height]);
+		for(i=[0:$needles_per_bed - 1]) {
+			translate([i * $needle_spacing + $needle_spacing / 2 - $needle_width / 2, 20, -1])
+			cube([$needle_width, 30, $needle_bed_height + 2]);
+
+			translate([i * $needle_spacing + $needle_spacing / 2 - $needle_width / 2, -1, -1])
+			cube([$needle_width, $needle_bed_depth + 2, $needle_height + 1]);
+		}
+	}
 
 }
 
