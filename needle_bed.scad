@@ -25,7 +25,15 @@ include <configuration.scad>
 module needle_bed() {
 
 	difference() {
-		cube([$needle_bed_width, $needle_bed_depth, $needle_bed_height]);
+		union() {
+			cube([$needle_bed_width, $needle_bed_depth, $needle_bed_height]);
+
+			// fingers
+			for(i=[0:$needles_per_bed]) {
+				translate([i * $needle_spacing  - $needle_width / 2, -20, 0])
+				cube([$needle_width, 20, $needle_bed_height * 2]);
+			}
+		}
 		for(i=[0:$needles_per_bed - 1]) {
 			translate([i * $needle_spacing + $needle_spacing / 2 - $needle_width / 2, 20, -1])
 			cube([$needle_width, 30, $needle_bed_height + 2]);
@@ -33,6 +41,13 @@ module needle_bed() {
 			translate([i * $needle_spacing + $needle_spacing / 2 - $needle_width / 2, -1, -1])
 			cube([$needle_width, $needle_bed_depth + 2, $needle_height + 1]);
 		}
+		
+		// trim the edges
+		translate([-6,-21,-1])
+		cube([6, $needle_bed_depth + 22, $needle_bed_height * 2 + 2]);
+
+		translate([$needle_bed_width,-21,-1])
+		cube([6, $needle_bed_depth + 22, $needle_bed_height * 2 + 2]);
 	}
 
 }

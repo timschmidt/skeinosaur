@@ -6,14 +6,14 @@ $needle_catch_offset = 0;
 $needle_catch_depth = 0;
 $needle_catch_height = 0;
 
-$number_of_needles = 10;
+$number_of_needles = 30;
 $needles_per_bed = 5;
 $needle_spacing = 10;
 
 $guide_rail_diameter = 8;
 $guide_rail_height = 40;
 $guide_rail_depth = 20;
-$guide_rail_mount_width = 5;
+$guide_rail_mount_width = 20;
 $guide_rail_mount_depth = 30;
 $guide_rail_mount_height = 50;
 
