@@ -19,14 +19,22 @@
 */
 
 include <configuration.scad>
+use <MCAD/shapes.scad>
+
+module screw_bracket() {
+	difference() {
+		translate([10,5,0]) rotate([90,0,180]) rightTriangle(10,10,10);
+		translate([15, 5, -1]) cylinder(r=2, h=10);
+		translate([15, 5, 3]) cylinder(r=4, h=10);
+	}
+}
 
 module guide_rail_mount() {
-	cube([$guide_rail_mount_width, $guide_rail_mount_depth, $guide_rail_mount_height]);
-
-	if (style == $idler) { echo("bob"); }
-
-	if (style == $motor) { echo("nancy"); }
-
+	union() {
+		cube([10, $guide_rail_mount_depth, $guide_rail_mount_height]);
+		screw_bracket();
+		translate([0, $guide_rail_mount_depth - 10, 0]) screw_bracket();
+	}
 }
 
 guide_rail_mount();
